@@ -1,15 +1,6 @@
 export default {
   items: [
     {
-      name: 'Dashboard',
-      url: '/dashboard',
-      icon: 'icon-speedometer',
-      badge: {
-        variant: 'info',
-        text: 'NEW',
-      },
-    },
-    {
       title: true,
       name: 'Theme',
       wrapper: {            // optional wrapper object
@@ -35,6 +26,28 @@ export default {
         element: '',
         attributes: {},
       },
+    },
+    {
+      name: 'Devices',
+      url: '/devices',
+      icon: 'icon-heart',
+      children: [
+        {
+          name: 'Routers',
+          url: '/devices/routers',
+          icon: 'icon-heart',
+        },
+        {
+          name: 'Switches',
+          url: '/devices/switches',
+          icon: 'icon-heart',
+        },
+        {
+          name: 'UPS',
+          url: '/devices/ups',
+          icon: 'icon-heart',
+        },
+      ]
     },
     {
       name: 'Base',
@@ -259,22 +272,7 @@ export default {
       name: 'Disabled',
       url: '/dashboard',
       icon: 'icon-ban',
-      attributes: { disabled: true },
-    },
-    {
-      name: 'Download CoreUI',
-      url: 'https://coreui.io/react/',
-      icon: 'icon-cloud-download',
-      class: 'mt-auto',
-      variant: 'success',
-      attributes: { target: '_blank', rel: "noopener" },
-    },
-    {
-      name: 'Try CoreUI PRO',
-      url: 'https://coreui.io/pro/react/',
-      icon: 'icon-layers',
-      variant: 'danger',
-      attributes: { target: '_blank', rel: "noopener" },
+      
     },
   ],
 };
