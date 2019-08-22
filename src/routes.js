@@ -13,7 +13,7 @@ const Navs = React.lazy(() => import('./views/Base/Navs'));
 const Paginations = React.lazy(() => import('./views/Base/Paginations'));
 const Popovers = React.lazy(() => import('./views/Base/Popovers'));
 const ProgressBar = React.lazy(() => import('./views/Base/ProgressBar'));
-const Switches = React.lazy(() => import('./views/Base/Switches'));
+//const Switches = React.lazy(() => import('./views/Base/Switches'));
 const Tables = React.lazy(() => import('./views/Base/Tables'));
 const Tabs = React.lazy(() => import('./views/Base/Tabs'));
 const Tooltips = React.lazy(() => import('./views/Base/Tooltips'));
@@ -37,6 +37,7 @@ const Users = React.lazy(() => import('./views/Users/Users'));
 const User = React.lazy(() => import('./views/Users/User'));
 const Devices = React.lazy(() => import('./views/Devices/Devices'));
 const Routers = React.lazy(() => import('./views/Devices/Routers'));
+const Switches = React.lazy(() => import('./views/Devices/Switches'));
 
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
@@ -84,6 +85,7 @@ const routes = [
   { path: '/users/:id', exact: true, name: 'User Details', component: User },
   { path: '/devices', exact: true, name: 'Devices', component: Devices },
   { path: '/devices/routers', exact: true, name: 'Routers', component: Routers },
+  { path: '/devices/switches', exact: true, name: 'Switches', component: Switches },
 ];
 
 export default routes;
