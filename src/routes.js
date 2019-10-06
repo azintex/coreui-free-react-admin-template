@@ -35,9 +35,10 @@ const Widgets = React.lazy(() => import('./views/Widgets/Widgets'));
 const Users = React.lazy(() => import('./views/Users/Users'));
 const User = React.lazy(() => import('./views/Users/User'));*/
 const Dashboard = React.lazy(() => import('./views/Dashboard'));
-const Devices = React.lazy(() => import('./views/Devices/Devices'));
-const Routers = React.lazy(() => import('./views/Devices/Routers'));
-const Switches = React.lazy(() => import('./views/Devices/Switches'));
+const Hardware = React.lazy(() => import('./views/Hardware/Hardware'));
+const Routers = React.lazy(() => import('./views/Hardware/Routers'));
+const Switches = React.lazy(() => import('./views/Hardware/Switches'));
+const UPS = React.lazy(() => import('./views/Hardware/UPS'));
 
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
@@ -83,9 +84,10 @@ const routes = [
   { path: '/charts', name: 'Charts', component: Charts },
   { path: '/users', exact: true,  name: 'Users', component: Users },
   { path: '/users/:id', exact: true, name: 'User Details', component: User },*/
-  { path: '/devices', exact: true, name: 'Devices', component: Devices },
-  { path: '/devices/routers', exact: true, name: 'Routers', component: Routers },
-  { path: '/devices/switches', exact: true, name: 'Switches', component: Switches },
+  { path: '/hardware', exact: true, name: 'Hardware', component: Hardware },
+  { path: '/hardware/routers', exact: true, name: 'Routers', component: Routers },
+  { path: '/hardware/switches', exact: true, name: 'Switches', component: Switches },
+  { path: '/hardware/ups', exact: true, name: 'UPS', component: UPS },
 ];
 
 export default routes;

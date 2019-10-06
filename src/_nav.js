@@ -11,23 +11,23 @@ export default {
       class: ''             // optional class names space delimited list for title item ex: "text-center"
     },
     {
-      name: 'Devices',
-      url: '/devices',
+      name: 'Hardware',
+      url: '/hardware',
       icon: 'fa fa-gears',
       children: [
         {
           name: 'Routers',
-          url: '/devices/routers',
+          url: '/hardware/routers',
           icon: 'icon-heart',
         },
         {
           name: 'Switches',
-          url: '/devices/switches',
+          url: '/hardware/switches',
           icon: 'icon-heart',
         },
         {
           name: 'UPS',
-          url: '/devices/ups',
+          url: '/hardware/ups',
           icon: 'icon-heart',
         },
       ]
