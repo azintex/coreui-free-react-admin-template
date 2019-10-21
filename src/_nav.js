@@ -32,5 +32,17 @@ export default {
         },
       ]
     },
+    {
+        name: 'Auth',
+        url: '/auth',
+        icon: 'icon-user',
+        children: [
+          {
+            name: 'Login',
+            url: '/auth/login',
+            icon: 'icon-user'
+          }
+        ]
+    },
   ],
 };

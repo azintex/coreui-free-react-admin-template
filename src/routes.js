@@ -88,6 +88,8 @@ const routes = [
   { path: '/hardware/routers', exact: true, name: 'Routers', component: Routers },
   { path: '/hardware/switches', exact: true, name: 'Switches', component: Switches },
   { path: '/hardware/ups', exact: true, name: 'UPS', component: UPS },
+  { path: '/auth', exact: true, name: 'Auth', component: Auth },
+  { path: '/auth/login', exact: true, name: 'Login', component: Login },
 ];
 
 export default routes;
