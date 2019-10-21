@@ -385,7 +385,7 @@ const mainChart = {
       backgroundColor: hexToRgba(brandInfo, 10),
       borderColor: brandInfo,
       pointHoverBackgroundColor: '#fff',
-      borderWidth: 2,
+      borderWidth: 5,
       data: data1,
     },
     {
