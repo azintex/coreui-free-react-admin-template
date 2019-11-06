@@ -11,6 +11,18 @@ export default {
       class: ''             // optional class names space delimited list for title item ex: "text-center"
     }, */
     {
+      name: 'Connections',
+      url: '/connections',
+      icon: 'fa fa-wire',
+      children: [
+        {
+          name: 'New connection',
+          url: '/connections/new',
+          icon: 'icon-heart'
+        }  
+      ]
+    },
+    {
       name: 'Hardware',
       url: '/hardware',
       icon: 'fa fa-gears',
