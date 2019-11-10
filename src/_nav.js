@@ -25,7 +25,7 @@ export default {
     {
       name: 'Hardware',
       url: '/hardware',
-      icon: 'fa fa-gears',
+      icon: 'fa fa-list',
       children: [
         {
           name: 'Routers',
@@ -52,6 +52,7 @@ export default {
         {
           name: 'Login',
           url: '/login',
+          icon: 'fa fa-sign-in-alt',
         }
       ]
     }
