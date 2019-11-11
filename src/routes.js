@@ -41,6 +41,7 @@ const Switches = React.lazy(() => import('./views/Hardware/Switches'));
 const UPS = React.lazy(() => import('./views/Hardware/UPS'));
 const Login = React.lazy(() => import('./views/Auth/Login'));
 const NewConnection = React.lazy(() => import('./views/Connections/NewConnection'));
+const NewLocation = React.lazy(() => import('./views/Locations/NewLocation'));
 
 
 // https://github.com/ReactTraining/react-router/tree/master/packages/react-router-config
@@ -91,7 +92,8 @@ const routes = [
   { path: '/hardware/switches', exact: true, name: 'Switches', component: Switches },
   { path: '/hardware/ups', exact: true, name: 'UPS', component: UPS },
   { path: '/login', exact: true, name: 'Login', component: Login },
-  { path: '/connections/new', exact: true, name: 'New connection', component: NewConnection }
+  { path: '/connections/new', exact: true, name: 'New connection', component: NewConnection },
+  { path: '/locations/new', exact: true, name: 'New location', component: NewLocation }
 ];
 
 export default routes;

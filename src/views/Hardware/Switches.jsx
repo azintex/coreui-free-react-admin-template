@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Table, Button, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input, FormText } from 'reactstrap';
-
+import { async } from 'q';
 
 const AddSwitchModal = (props) => {
     const {
@@ -8,16 +8,20 @@ const AddSwitchModal = (props) => {
       className
     } = props;
   
-    const [modal, setModal] = useState(false);
-    //const locations = null
+    const [modal, setModal] = useState(false)
+    const [hasError, setErrors] = useState(false)
+    const [locations, setLocations] = useState([])
+
+    async function fetchLocations() {
+        const resp = await fetch('http://api.azintex.com/list/location')
+        resp.json().then(response => setLocations(response)).catch(error => setErrors(error))
+    }
   
-    const toggle = () => setModal(!modal);
-    //const addSwitch = () => fetch('http://api.azintex.com', {body: }).then(res => res.json().then((result)))
+    const toggle = () => setModal(!modal)    
 
     useEffect(() => {
-        fetch('http://api.azintex.com/list/location').then(res => res.json()).then((result) => console.log(result))
-        //console.log(locations)
-    }) 
+        fetchLocations()
+    }, [])
         
   
     return (
@@ -29,9 +33,9 @@ const AddSwitchModal = (props) => {
           <Form>
 
             <FormGroup>
-                <Label for="exampleSelect">Select</Label>
-                <Input type="select" name="select" id="exampleSelect">
-                    <option>1</option>
+                <Label for="location">Location</Label>
+                <Input type="select" name="select" id="location">            
+                    {locations.map(item => (<option key={item.id}>{item.location}</option>))}
                 </Input>
             </FormGroup>
             <FormGroup>

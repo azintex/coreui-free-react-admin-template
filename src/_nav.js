@@ -23,6 +23,19 @@ export default {
       ]
     },
     {
+      name: 'Locations',
+      url: '/locations',
+      icon: 'fa fa-building',
+      children: [
+        {
+          name: 'New location',
+          url: '/locations/new',
+          icon: 'icon-heart'
+        }        
+      ]
+    }
+    ,
+    {
       name: 'Hardware',
       url: '/hardware',
       icon: 'fa fa-list',
