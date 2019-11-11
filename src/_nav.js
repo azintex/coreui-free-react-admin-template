@@ -33,8 +33,7 @@ export default {
           icon: 'icon-heart'
         }        
       ]
-    }
-    ,
+    },
     {
       name: 'Hardware',
       url: '/hardware',
