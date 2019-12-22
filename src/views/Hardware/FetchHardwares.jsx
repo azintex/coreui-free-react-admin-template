@@ -7,13 +7,14 @@ const FetchHardwares = () => {
     const [hasError, setErrors] = useState(false)
 
     async function fetchHardwares() {
-    const res = await fetch('http://api.azintex.com/hardware')
-    res.json().then(response => getHardwares(response)).catch(error => setErrors(error))
+        const res = await fetch('http://api.azintex.com/hardware')
+        res.json().then(response => getHardwares(response)).catch(error => setErrors(error))
     }
 
-    async function deleteHardware(id) {
-        const req = await fetch(`http://api.azintex.com/hardware/${id}`, {method: 'DELETE'})
-        req.then(() => console.log(`${id} deleted`)).catch(error => setErrors(error))
+    async function deleteHardware(ip_address) {
+        //const req = await fetch(`http://api.azintex.com/hardware/${ip_address}`, {method: 'DELETE'})
+        //req.then(() => console.log(`${ip_address} deleted`)).catch(error => setErrors(error))
+        fetch('http://api.azintex.com/hardware', {method: 'DELETE'}).then(data => console.log('Request succeeded with JSON data ', data)).catch(err => console.log('Request failed ', err))
     }
 
     useEffect(() => {
@@ -32,7 +33,7 @@ const FetchHardwares = () => {
                     <ButtonGroup>
                         <Button outline color='info' size='sm' onClick={()=> window.location=`telnet://${hardware.ip_address}`} >Connect</Button>
                         <Button outline color='secondary' size='sm' className='icon-pencil'></Button>
-                        <Button outline color='danger' size='sm' className='icon-trash' onClick={() => deleteHardware(hardware._id.$oid)}></Button>
+                        <Button outline color='danger' size='sm' className='icon-trash' onClick={() => deleteHardware(hardware.ip_address)}></Button>
                     </ButtonGroup>
                 </td>
                 </tr>))}

@@ -18,8 +18,8 @@ const FetchLocations = () => {
     return (
         <FormGroup>
             <Label for="location">Location</Label>
-            <Input type="select" name="select" id="location">            
-                {locations.map(item => (<option key={item.id}>{item.location}</option>))}
+            <Input type="select" name="location" id="location">            
+                {locations.map(item => (<option key={item.id} value={item.location}>{item.location}</option>))}
             </Input>
         </FormGroup>
     )

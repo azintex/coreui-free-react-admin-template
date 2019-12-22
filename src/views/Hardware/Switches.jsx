@@ -14,8 +14,11 @@ const ShowModal = (props) => {
     
     const toggle = () => setModal(!modal)
 
-    async function handleSubmit(formData) {
-        console.log('handleSubmit called')
+    async function handleSubmit(e) {    
+        e.preventDefault()
+        const fd = new FormData(e.target)
+        fetch('http://api.azintex.com/add/hardware', {method: 'POST', mode: 'no-cors', body: fd}).then(data => console.log('Request succeeded with JSON data ', data)).catch(err => console.log('Request failed ', err))
+        toggle()
     }
   
     return (
@@ -52,6 +55,7 @@ const ShowModal = (props) => {
   const Switches = () => {
     
     const [switches, getSwitches] = useState([])
+    
 
     return (
         <div>
