@@ -1,25 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { ButtonGroup, Button } from 'reactstrap';
 
+const apiUrl = 'http://api.azintex.com/hardware';
+
 const FetchHardwares = () => {
+    const [hardwares, fetchHardwares] = useState([]);
 
-    const [hardwares, getHardwares] = useState([])
-    const [hasError, setErrors] = useState(false)
-
-    async function fetchHardwares() {
-        const res = await fetch('http://api.azintex.com/hardware')
-        res.json().then(response => getHardwares(response)).catch(error => setErrors(error))
+    const getHardwaresFromAPI = async () => {
+        const response = await fetch(`${apiUrl}`);
+        const json = await response.json();
+        return json;
     }
 
-    async function deleteHardware(ip_address) {
-        //const req = await fetch(`http://api.azintex.com/hardware/${ip_address}`, {method: 'DELETE'})
-        //req.then(() => console.log(`${ip_address} deleted`)).catch(error => setErrors(error))
-        fetch('http://api.azintex.com/hardware', {method: 'DELETE'}).then(data => console.log('Request succeeded with JSON data ', data)).catch(err => console.log('Request failed ', err))
+    const deleteHardwareById= async (id) => {
+        const request = await fetch(`${apiUrl}/${id}`, {method: 'DELETE'});
+        const result = await request.status;
+        console.log(result);                
     }
 
-    useEffect(() => {
-        fetchHardwares()
-    }, [])
+    useEffect(() =>{
+        getHardwaresFromAPI().then(arr => fetchHardwares(arr));
+    }, []);
 
     return (
         <tbody>
@@ -31,9 +32,9 @@ const FetchHardwares = () => {
                 <td>{hardware.ip_address}</td>
                 <td>
                     <ButtonGroup>
-                        <Button outline color='info' size='sm' onClick={()=> window.location=`telnet://${hardware.ip_address}`} >Connect</Button>
-                        <Button outline color='secondary' size='sm' className='icon-pencil'></Button>
-                        <Button outline color='danger' size='sm' className='icon-trash' onClick={() => deleteHardware(hardware.ip_address)}></Button>
+                        <Button color='success' size='sm' onClick={()=> window.location=`telnet://${hardware.ip_address}`} >Connect</Button>
+                        <Button outline color='primary' size='sm' className='icon-pencil' onClick={() => console.log('Edit')}></Button>
+                        <Button outline color='danger' size='sm' className='icon-trash' onClick={() => deleteHardwareById(hardware._id.$oid)}></Button>
                     </ButtonGroup>
                 </td>
                 </tr>))}

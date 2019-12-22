@@ -16,8 +16,9 @@ const ShowModal = (props) => {
 
     async function handleSubmit(e) {    
         e.preventDefault()
-        const fd = new FormData(e.target)
-        fetch('http://api.azintex.com/add/hardware', {method: 'POST', mode: 'no-cors', body: fd}).then(data => console.log('Request succeeded with JSON data ', data)).catch(err => console.log('Request failed ', err))
+        const formData = new FormData(e.target)
+        const addRequest = await fetch('http://api.azintex.com/add/hardware', {method: 'POST', body: formData})
+        //fetch('http://api.azintex.com/add/hardware', {method: 'POST', mode: 'no-cors', body: fd}).then(data => console.log('Request succeeded with JSON data ', data)).catch(err => console.log('Request failed ', err))
         toggle()
     }
   
@@ -53,10 +54,6 @@ const ShowModal = (props) => {
   }
 
   const Switches = () => {
-    
-    const [switches, getSwitches] = useState([])
-    
-
     return (
         <div>
             <Table size='sm' responsive striped hover>
@@ -66,7 +63,7 @@ const ShowModal = (props) => {
                     <th>Description</th>
                     <th>Vendor</th>
                     <th>IP Address</th>
-                    <th></th>
+                    <th>Actions</th>
                 </tr>
             </thead>
                 <FetchHardwares />
