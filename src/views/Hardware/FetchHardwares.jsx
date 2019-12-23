@@ -24,9 +24,9 @@ const FetchHardwares = () => {
         }
     }
 
-    useEffect(() =>{
+    useEffect(() => {
         getHardwaresFromAPI().then(arr => fetchHardwares(arr));
-    }, [hardwares.ip_address]);
+    }, []);
 
     return (
         <tbody>
