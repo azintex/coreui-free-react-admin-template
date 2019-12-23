@@ -7,20 +7,26 @@ const FetchHardwares = () => {
     const [hardwares, fetchHardwares] = useState([]);
 
     const getHardwaresFromAPI = async () => {
-        const response = await fetch(`${apiUrl}`);
-        const json = await response.json();
-        return json;
+        try {
+            const response = await fetch(`${apiUrl}`);
+            const json = await response.json();
+            return json;   
+        } catch (error) {
+            alert(error)
+        }
     }
 
     const deleteHardwareById= async (id) => {
-        const request = await fetch(`${apiUrl}/${id}`, {method: 'DELETE'});
-        const result = await request.status;
-        console.log(result);                
+        try {
+            await fetch(`${apiUrl}/${id}`, {method: 'DELETE'});    
+        } catch (error) {
+            alert(error)
+        }
     }
 
     useEffect(() =>{
         getHardwaresFromAPI().then(arr => fetchHardwares(arr));
-    }, []);
+    }, [hardwares.ip_address]);
 
     return (
         <tbody>

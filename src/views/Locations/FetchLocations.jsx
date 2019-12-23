@@ -1,28 +1,34 @@
 import React, { useState, useEffect } from 'react';
 import { FormGroup, Label, Input } from 'reactstrap';
 
+const apiUrl = 'http://api.azintex.com/location';
+
 const FetchLocations = () => {
 
-    const [locations, getLocations] = useState([])
-    const [hasError, setErrors] = useState(false)
+    const [locations, fetchLocations] = useState([]);
 
-    async function fetchLocations() {
-    const resp = await fetch('http://api.azintex.com/get/location')
-    resp.json().then(response => getLocations(response)).catch(error => setErrors(error))
+    const getLocationsFromAPI = async () => {
+        try {
+            const response = await fetch(apiUrl);
+            const json = response.json();
+            return json;   
+        } catch (error) {
+            console.log(`${error} occur`);
+        }
     }
 
     useEffect(() => {
-        fetchLocations()
+        getLocationsFromAPI().then(_locations => fetchLocations(_locations))
     }, [])
 
     return (
         <FormGroup>
             <Label for="location">Location</Label>
             <Input type="select" name="location" id="location">            
-                {locations.map(item => (<option key={item.id} value={item.location}>{item.location}</option>))}
+                {locations.map(location => (<option key={location._id.$oid} value={location.name}>{location.name}</option>))}
             </Input>
         </FormGroup>
     )
 }
 
-export default FetchLocations
+export default FetchLocations;

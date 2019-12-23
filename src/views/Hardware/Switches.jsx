@@ -4,6 +4,8 @@ import { async } from 'q';
 import FetchLocations from '../Locations/FetchLocations';
 import FetchHardwares from './FetchHardwares';
 
+const apiUrl = 'http://api.azintex.com/hardware';
+
 const ShowModal = (props) => {
     const {
       buttonLabel,
@@ -17,9 +19,12 @@ const ShowModal = (props) => {
     async function handleSubmit(e) {    
         e.preventDefault()
         const formData = new FormData(e.target)
-        const addRequest = await fetch('http://api.azintex.com/add/hardware', {method: 'POST', body: formData})
-        //fetch('http://api.azintex.com/add/hardware', {method: 'POST', mode: 'no-cors', body: fd}).then(data => console.log('Request succeeded with JSON data ', data)).catch(err => console.log('Request failed ', err))
-        toggle()
+        try {
+            await fetch(apiUrl, {method: 'POST', body: formData});
+        } catch (error) {
+            alert(error)
+        }
+        toggle();
     }
   
     return (
