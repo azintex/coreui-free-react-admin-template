@@ -35,24 +35,31 @@ export default {
       ]
     },
     {
-      name: 'Hardware',
-      url: '/hardware',
+      name: 'Inventory',
+      url: '/inventory',
       icon: 'fa fa-list',
       children: [
         {
-          name: 'Routers',
-          url: '/hardware/routers',
+          name: 'Hardware',
+          url: '/inventory/hardware',
           icon: 'icon-heart',
-        },
-        {
-          name: 'Switches',
-          url: '/hardware/switches',
-          icon: 'icon-heart',
-        },
-        {
-          name: 'UPS',
-          url: '/hardware/ups',
-          icon: 'icon-heart',
+          children : [
+            {
+              name: 'Routers',
+              url: '/inventory/hardware/routers',
+              icon: 'icon-heart',
+            },
+            {
+              name: 'Switches',
+              url: '/inventory/hardware/switches',
+              icon: 'icon-heart',
+            },
+            {
+              name: 'UPS',
+              url: '/inventory/hardware/ups',
+              icon: 'icon-heart',
+            },
+          ]
         },
       ]
     },

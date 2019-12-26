@@ -35,10 +35,11 @@ const Widgets = React.lazy(() => import('./views/Widgets/Widgets'));
 const Users = React.lazy(() => import('./views/Users/Users'));
 const User = React.lazy(() => import('./views/Users/User'));*/
 const Dashboard = React.lazy(() => import('./views/Dashboard'));
-const Hardware = React.lazy(() => import('./views/Hardware/Hardware'));
-const Routers = React.lazy(() => import('./views/Hardware/Routers'));
-const Switches = React.lazy(() => import('./views/Hardware/Switches'));
-const UPS = React.lazy(() => import('./views/Hardware/UPS'));
+const Inventory = React.lazy(() => import('./views/Inventory/Inventory'));
+const Hardware = React.lazy(() => import('./views/Inventory/Hardware'));
+const Routers = React.lazy(() => import('./views/Inventory/Routers'));
+const Switches = React.lazy(() => import('./views/Inventory/Switches'));
+const UPS = React.lazy(() => import('./views/Inventory/UPS'));
 const Login = React.lazy(() => import('./views/Auth/Login'));
 const NewConnection = React.lazy(() => import('./views/Connections/NewConnection'));
 const NewLocation = React.lazy(() => import('./views/Locations/NewLocation'));
@@ -87,10 +88,11 @@ const routes = [
   { path: '/charts', name: 'Charts', component: Charts },
   { path: '/users', exact: true,  name: 'Users', component: Users },
   { path: '/users/:id', exact: true, name: 'User Details', component: User },*/
-  { path: '/hardware', exact: true, name: 'Hardware', component: Hardware },
-  { path: '/hardware/routers', exact: true, name: 'Routers', component: Routers },
-  { path: '/hardware/switches', exact: true, name: 'Switches', component: Switches },
-  { path: '/hardware/ups', exact: true, name: 'UPS', component: UPS },
+  { path: '/inventory', exact: true, name: 'Inventory', component: Inventory },
+  { path: '/inventory/hardware', exact: true, name: 'Hardware', component: Hardware },
+  { path: '/inventory/hardware/routers', exact: true, name: 'Routers', component: Routers },
+  { path: '/inventory/hardware/switches', exact: true, name: 'Switches', component: Switches },
+  { path: '/inventory/hardware/ups', exact: true, name: 'UPS', component: UPS },
   { path: '/login', exact: true, name: 'Login', component: Login },
   { path: '/connections/new', exact: true, name: 'New connection', component: NewConnection },
   { path: '/locations/new', exact: true, name: 'New location', component: NewLocation }

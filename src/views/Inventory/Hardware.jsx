@@ -7,8 +7,12 @@ const Hardware = () => {
     const [names, ] = useState([])
 
     useEffect(() => {
-        console.log(name);
-    },[name])
+        if (isAdded) {
+            names.push(name)
+            setAdd(!isAdded)
+        }
+        console.log(name, isAdded);
+    },[isAdded])
 
     return(
         <div>
