@@ -6,6 +6,8 @@ import FetchLocations from '../Locations/FetchLocations';
 const APIURL = 'http://api.azintex.com/inventory/hardware';
 
 const ShowInventoryItems = (props) => {
+
+  const [isAdded, setIsAdded] = useState(false);
   const [inventoryItems, fetchInventories] = useState([]);
 
   const getInventoryItemsFromAPI = async () => {
@@ -16,9 +18,9 @@ const ShowInventoryItems = (props) => {
       } catch (error) {
           alert(error)
       }
-  }
+ }
 
-  const deleteFromInventoryById= async (id) => {
+  const deleteFromInventoryById = async (id) => {
       try {
           await fetch(`${APIURL}/${id}`, {method: 'DELETE'});    
       } catch (error) {
@@ -27,12 +29,14 @@ const ShowInventoryItems = (props) => {
   }
 
   useEffect(() => {
-      getInventoryItemsFromAPI().then(arr => fetchInventories(arr));
-  }, []);
+      //getInventoryItemsFromAPI().then(arr => fetchInventories(arr));
+      //setIsAdded(props.isAdded);
+      console.log(inventoryItems);
+  }, [isAdded]);
 
   return (
       <tbody>
-          {inventoryItems.map(hardware => (
+          {inventoryItems.hardware.map(hardware => (
               <tr key={hardware._id.$oid}>
               <td>{hardware.type}</td>
               <td>{hardware.location}</td>
@@ -61,8 +65,8 @@ const ShowModal = (props) => {
     
     const toggle = () => setModal(!modal)
 
-    const updateInventoryItems = (inventoryItemType) => {
-        return <ShowInventoryItems inventoryItemType={inventoryItemType} />
+    const updateInventoryItems = (inventoryItemType, isAdded) => {
+        return <ShowInventoryItems inventoryItemType={inventoryItemType} isAdded={!isAdded}/>
     }
 
     async function handleSubmit(e) {    
@@ -98,7 +102,7 @@ const ShowModal = (props) => {
             </FormGroup>
           </ModalBody>
           <ModalFooter>
-            <Button type='submit' onClick={updateInventoryItems} color="primary">Add</Button>{' '}
+            <Button type='submit' onClick={() => updateInventoryItems('switch', true)} color="primary">Add</Button>{' '}
             <Button color="secondary" onClick={toggle}>Cancel</Button>
           </ModalFooter>
           </Form>
