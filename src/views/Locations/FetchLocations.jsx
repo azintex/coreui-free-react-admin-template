@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { FormGroup, Label, Input } from 'reactstrap';
 
-const apiUrl = 'http://api.azintex.com/location';
+const APIURL = 'http://api.azintex.com/location';
 
 const FetchLocations = () => {
 
@@ -9,7 +9,7 @@ const FetchLocations = () => {
 
     const getLocationsFromAPI = async () => {
         try {
-            const response = await fetch(apiUrl);
+            const response = await fetch(APIURL);
             const json = response.json();
             return json;   
         } catch (error) {

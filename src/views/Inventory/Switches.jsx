@@ -29,27 +29,30 @@ const ShowInventoryItems = (props) => {
   }
 
   useEffect(() => {
-      //getInventoryItemsFromAPI().then(arr => fetchInventories(arr));
+      getInventoryItemsFromAPI().then(arr => fetchInventories(arr));
       //setIsAdded(props.isAdded);
       console.log(inventoryItems);
-  }, [isAdded]);
+  }, []);
 
   return (
       <tbody>
-          {inventoryItems.hardware.map(hardware => (
-              <tr key={hardware._id.$oid}>
-              <td>{hardware.type}</td>
-              <td>{hardware.location}</td>
-              <td>{hardware.description}</td>
-              <td>{hardware.vendor}</td>
-              <td>{hardware.ip_address}</td>
-              <td>
-                  <ButtonGroup>
-                      <Button color='success' size='sm' onClick={()=> window.location=`telnet://${hardware.ip_address}`} >Connect</Button>
-                      <Button outline color='primary' size='sm' className='icon-pencil' onClick={() => console.log('Edit')}></Button>
-                      <Button outline color='danger' size='sm' className='icon-trash' onClick={() => deleteFromInventoryById(hardware._id.$oid)}></Button>
-                  </ButtonGroup>
-              </td>
+          {inventoryItems.map(inventoryItem => (
+              <tr key={inventoryItem._id.$oid}>
+                <td>{inventoryItem.hardware.type}</td>
+                <td>{inventoryItem.hardware.role}</td>
+                <td>{inventoryItem.hardware.notes}</td>
+                <td>{inventoryItem.hardware.location}</td>                
+                <td>{inventoryItem.hardware.vendor}</td>
+                <td>{inventoryItem.hardware.model}</td>
+                <td>{inventoryItem.hardware.ip_address}</td>
+                <td>{inventoryItem.hardware.connection_proto}</td>
+                <td>
+                    <ButtonGroup>
+                        <Button color='success' size='sm' onClick={()=> window.location=`telnet://${inventoryItem.hardware.ip_address}`} >Connect</Button>
+                        <Button outline color='primary' size='sm' className='icon-pencil' onClick={() => console.log('Edit')}></Button>
+                        <Button outline color='danger' size='sm' className='icon-trash' onClick={() => deleteFromInventoryById(inventoryItem._id.$oid)}></Button>
+                    </ButtonGroup>
+                </td>
               </tr>))}
       </tbody>
   )
@@ -85,20 +88,44 @@ const ShowModal = (props) => {
         <Button color="info" outline onClick={toggle}>{buttonLabel}</Button>
         <Modal isOpen={modal} toggle={toggle} className={className}>
         <Form onSubmit={handleSubmit}>
-          <ModalHeader toggle={toggle}>Modal title</ModalHeader>
+          <ModalHeader toggle={toggle}>New hardware</ModalHeader>
           <ModalBody>
-            <FetchLocations />
             <FormGroup>
-                <Label for="description">Description</Label>
-                <Input type="text" name="description" id="description" placeholder="e.g. 5-th floor switch" />
+                <Label for="type">Hardware type</Label>
+                <Input type="select" name="type" id="type">            
+                    <option>switch</option>
+                    <option>router</option>
+                    <option>ups</option>
+                </Input>
             </FormGroup>
             <FormGroup>
+                <Label for="role">Hardware role</Label>
+                <Input type="text" name="role" id="role" placeholder="e.g. Core router" />
+            </FormGroup>
+            <FormGroup>
+                <Label for="notes">Notes</Label>
+                <Input type="text" name="notes" id="notes" placeholder="e.g. Heart of Aintex.com ISP" />
+            </FormGroup>
+            <FetchLocations />
+            <FormGroup>
                 <Label for="vendor">Vendor</Label>
-                <Input type="text" name="vendor" id="vendor" placeholder="e.g. Cisco Catalyst 2960" />
+                <Input type="text" name="vendor" id="vendor" placeholder="e.g. Cisco" />
+            </FormGroup>
+            <FormGroup>
+                <Label for="model">Model</Label>
+                <Input type="text" name="model" id="model" placeholder="e.g. Catalyst 2960" />
             </FormGroup>
             <FormGroup>
                 <Label for="ip_address">IP address</Label>
                 <Input type="text" name="ip_address" id="ip_address" placeholder="e.g. 10.16.93.33" />
+            </FormGroup>
+            <FormGroup>
+                <Label for="proto">Connection proto</Label>
+                <Input type="select" name="proto" id="proto">            
+                    <option>ssh</option>
+                    <option>telnet</option>
+                    <option>web</option>
+                </Input>
             </FormGroup>
           </ModalBody>
           <ModalFooter>
@@ -119,18 +146,17 @@ const ShowModal = (props) => {
                 <tr>
                     <th>Type</th>
                     <th>Role</th>
-                    <th>Location</th>
                     <th>Notes</th>
+                    <th>Location</th>                
                     <th>Vendor</th>
                     <th>Model</th>
-                    <th>IP Address</th>
-                    <th>Vendor</th>
-                    <th>Actions</th>
+                    <th>IP address</th>
+                    <th>Protocol</th>
                 </tr>
             </thead>
                 <ShowInventoryItems />
             </Table>
-            <ShowModal buttonLabel='+ Add switch'/>
+            <ShowModal buttonLabel='+ Add'/>
         </div>
     )
   }
