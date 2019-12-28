@@ -82,83 +82,83 @@ const ShowModal = (props) => {
         }
         toggle();
     }
-  
-    return (
-      <div>
-        <Button color="info" outline onClick={toggle}>{buttonLabel}</Button>
-        <Modal isOpen={modal} toggle={toggle} className={className}>
-        <Form onSubmit={handleSubmit}>
-          <ModalHeader toggle={toggle}>New hardware</ModalHeader>
-          <ModalBody>
-            <FormGroup>
-                <Label for="type">Hardware type</Label>
-                <Input type="select" name="type" id="type">            
-                    <option>switch</option>
-                    <option>router</option>
-                    <option>ups</option>
-                </Input>
-            </FormGroup>
-            <FormGroup>
-                <Label for="role">Hardware role</Label>
-                <Input type="text" name="role" id="role" placeholder="e.g. Core router" />
-            </FormGroup>
-            <FormGroup>
-                <Label for="notes">Notes</Label>
-                <Input type="text" name="notes" id="notes" placeholder="e.g. Heart of Aintex.com ISP" />
-            </FormGroup>
-            <FetchLocations />
-            <FormGroup>
-                <Label for="vendor">Vendor</Label>
-                <Input type="text" name="vendor" id="vendor" placeholder="e.g. Cisco" />
-            </FormGroup>
-            <FormGroup>
-                <Label for="model">Model</Label>
-                <Input type="text" name="model" id="model" placeholder="e.g. Catalyst 2960" />
-            </FormGroup>
-            <FormGroup>
-                <Label for="ip_address">IP address</Label>
-                <Input type="text" name="ip_address" id="ip_address" placeholder="e.g. 10.16.93.33" />
-            </FormGroup>
-            <FormGroup>
-                <Label for="proto">Connection proto</Label>
-                <Input type="select" name="proto" id="proto">            
-                    <option>ssh</option>
-                    <option>telnet</option>
-                    <option>web</option>
-                </Input>
-            </FormGroup>
-          </ModalBody>
-          <ModalFooter>
-            <Button type='submit' onClick={() => updateInventoryItems('switch', true)} color="primary">Add</Button>{' '}
-            <Button color="secondary" onClick={toggle}>Cancel</Button>
-          </ModalFooter>
-          </Form>
-        </Modal>
-      </div>
-    );
+
+        return (
+            <div>
+              <Button color="info" outline onClick={toggle}>{buttonLabel}</Button>
+              <Modal isOpen={modal} toggle={toggle} className={className}>
+              <Form onSubmit={handleSubmit}>
+                <ModalHeader toggle={toggle}>New hardware</ModalHeader>
+                <ModalBody>
+                  <FormGroup>
+                      <Label for="type">Hardware type</Label>
+                      <Input type="select" name="type" id="type">            
+                          <option>switch</option>
+                          <option>router</option>
+                          <option>ups</option>
+                      </Input>
+                  </FormGroup>
+                  <FormGroup>
+                      <Label for="role">Hardware role</Label>
+                      <Input type="text" name="role" id="role" placeholder="e.g. Core router" />
+                  </FormGroup>
+                  <FormGroup>
+                      <Label for="notes">Notes</Label>
+                      <Input type="text" name="notes" id="notes" placeholder="e.g. Heart of Aintex.com ISP" />
+                  </FormGroup>
+                  <FetchLocations />
+                  <FormGroup>
+                      <Label for="vendor">Vendor</Label>
+                      <Input type="text" name="vendor" id="vendor" placeholder="e.g. Cisco" />
+                  </FormGroup>
+                  <FormGroup>
+                      <Label for="model">Model</Label>
+                      <Input type="text" name="model" id="model" placeholder="e.g. Catalyst 2960" />
+                  </FormGroup>
+                  <FormGroup>
+                      <Label for="ip_address">IP address</Label>
+                      <Input type="text" name="ip_address" id="ip_address" placeholder="e.g. 10.16.93.33" />
+                  </FormGroup>
+                  <FormGroup>
+                      <Label for="proto">Connection proto</Label>
+                      <Input type="select" name="proto" id="proto">            
+                          <option>ssh</option>
+                          <option>telnet</option>
+                          <option>web</option>
+                      </Input>
+                  </FormGroup>
+                </ModalBody>
+                <ModalFooter>
+                  <Button type='submit' onClick={() => updateInventoryItems('switch', true)} color="primary">Add</Button>{' '}
+                  <Button color="secondary" onClick={toggle}>Cancel</Button>
+                </ModalFooter>
+                </Form>
+              </Modal>
+            </div>
+          );
   }
 
   const Switches = () => {
-    return (
-        <div>
-            <Table size='sm' responsive striped hover>
-            <thead>
-                <tr>
-                    <th>Type</th>
-                    <th>Role</th>
-                    <th>Notes</th>
-                    <th>Location</th>                
-                    <th>Vendor</th>
-                    <th>Model</th>
-                    <th>IP address</th>
-                    <th>Protocol</th>
-                </tr>
-            </thead>
-                <ShowInventoryItems />
-            </Table>
-            <ShowModal buttonLabel='+ Add'/>
-        </div>
-    )
+        return (
+            <div>
+                <Table size='sm' responsive striped hover>
+                <thead>
+                    <tr>
+                        <th>Type</th>
+                        <th>Role</th>
+                        <th>Notes</th>
+                        <th>Location</th>                
+                        <th>Vendor</th>
+                        <th>Model</th>
+                        <th>IP address</th>
+                        <th>Protocol</th>
+                    </tr>
+                </thead>
+                    <ShowInventoryItems />
+                </Table>
+                <ShowModal buttonLabel='+ Add'/>
+            </div>
+        )
   }
 
   export default Switches
