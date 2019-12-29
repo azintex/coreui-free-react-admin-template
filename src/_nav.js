@@ -63,17 +63,17 @@ export default {
         },
       ]
     },
-    {
-      name: 'Pages',
-      url: '/pages',
-      icon: 'icon-page',
-      children: [
-        {
-          name: 'Login',
-          url: '/login',
-          icon: 'fa fa-sign-in-alt',
-        }
-      ]
-    }
+    // {
+    //   name: 'Pages',
+    //   url: '/pages',
+    //   icon: 'icon-page',
+    //   children: [
+    //     {
+    //       name: 'Login',
+    //       url: '/login',
+    //       icon: 'fa fa-sign-in-alt',
+    //     }
+    //   ]
+    // }
   ],
 };
