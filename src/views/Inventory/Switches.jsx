@@ -2,15 +2,17 @@ import React, { useState, useEffect } from 'react';
 import { Table, Button, ButtonGroup, Modal, ModalHeader, ModalBody, ModalFooter, Form, FormGroup, Label, Input } from 'reactstrap';
 import { async } from 'q';
 import FetchLocations from '../Locations/FetchLocations';
+import { url, version } from '../../_api.json';
 
-const APIURL = 'http://api.azintex.com/inventory/hardware';
+//const APIURL = 'https://api.azintex.com/inventory/hardware';
+const APIURL = `${url}/${version}/inventory/hardware`;
 
 const ShowInventoryItems = (props) => {
 
   const [isAdded, setIsAdded] = useState(false);
-  const [inventoryItems, fetchInventories] = useState([]);
+  const [inventoryItems, fetchInventoryItems] = useState([]);
 
-  const getInventoryItemsFromAPI = async () => {
+  const getInventoryItems = async () => {
       try {
           const response = await fetch(`${APIURL}`);
           const json = await response.json();
@@ -29,7 +31,7 @@ const ShowInventoryItems = (props) => {
   }
 
   useEffect(() => {
-      getInventoryItemsFromAPI().then(arr => fetchInventories(arr));
+      getInventoryItems().then(arr => fetchInventoryItems(arr));
       //setIsAdded(props.isAdded);
       console.log(inventoryItems);
   }, []);
@@ -48,7 +50,7 @@ const ShowInventoryItems = (props) => {
                 <td>{inventoryItem.hardware.connection_proto}</td>
                 <td>
                     <ButtonGroup>
-                        <Button color='success' size='sm' onClick={()=> window.location=`telnet://${inventoryItem.hardware.ip_address}`} >Connect</Button>
+                        <Button color='success' size='sm' onClick={()=> window.location=`${inventoryItem.hardware.connection_proto}://${inventoryItem.hardware.ip_address}`} >Connect</Button>
                         <Button outline color='primary' size='sm' className='icon-pencil' onClick={() => console.log('Edit')}></Button>
                         <Button outline color='danger' size='sm' className='icon-trash' onClick={() => deleteFromInventoryById(inventoryItem._id.$oid)}></Button>
                     </ButtonGroup>
@@ -93,9 +95,9 @@ const ShowModal = (props) => {
                   <FormGroup>
                       <Label for="type">Hardware type</Label>
                       <Input type="select" name="type" id="type">            
-                          <option>switch</option>
-                          <option>router</option>
-                          <option>ups</option>
+                          <option>Switch</option>
+                          <option>Router</option>
+                          <option>UPS</option>
                       </Input>
                   </FormGroup>
                   <FormGroup>
@@ -120,11 +122,12 @@ const ShowModal = (props) => {
                       <Input type="text" name="ip_address" id="ip_address" placeholder="e.g. 10.16.93.33" />
                   </FormGroup>
                   <FormGroup>
-                      <Label for="proto">Connection proto</Label>
+                      <Label for="proto">Connection protocol</Label>
                       <Input type="select" name="proto" id="proto">            
                           <option>ssh</option>
                           <option>telnet</option>
-                          <option>web</option>
+                          <option>http</option>
+                          <option>https</option>
                       </Input>
                   </FormGroup>
                 </ModalBody>

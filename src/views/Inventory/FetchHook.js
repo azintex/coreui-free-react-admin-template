@@ -1,11 +1,20 @@
 import { useState, useEffect } from 'react';
+import { url, version } from '../../_api.json';
 
-const [fetchedData, fetchData] = useState([])
+const useFetch = (props) => {
 
-const useFetch = () => {
+    const APIURL = `${url}/${version}/props.fetched.item/props.fetched.item.type`;
+
+    const [data, fetchData] = useState([])
+
     useEffect(() => {
-        fetchData(fetchedData);
-    }, [])
+        try async {
+            const response = await fetch(APIURL)
+            return response.json();
+        } catch (error) {
+            alert(error)
+        }
+    })
 }
 
-export default useFetch()
+export default useFetch();

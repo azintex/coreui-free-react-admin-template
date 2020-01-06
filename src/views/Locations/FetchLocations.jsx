@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { FormGroup, Label, Input } from 'reactstrap';
+import { url, version } from '../../_api.json';
 
-const APIURL = 'http://api.azintex.com/location';
+const APIURL = `${url}/${version}/location`;
 
 const FetchLocations = () => {
 
