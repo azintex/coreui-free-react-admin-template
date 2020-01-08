@@ -24,7 +24,7 @@ const ShowInventoryItems = (props) => {
 
   const deleteFromInventoryById = async (id) => {
       try {
-          await fetch(`${APIURL}/${id}`, {method: 'DELETE'});    
+          await fetch(`${APIURL}/${id}`, {method: 'DELETE'});
       } catch (error) {
           alert(error)
       }
@@ -33,7 +33,7 @@ const ShowInventoryItems = (props) => {
   useEffect(() => {
       getInventoryItems().then(arr => fetchInventoryItems(arr));
       //setIsAdded(props.isAdded);
-      console.log(inventoryItems);
+      //console.log(inventoryItems);
   }, []);
 
   return (
