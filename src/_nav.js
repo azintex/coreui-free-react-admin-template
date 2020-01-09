@@ -11,16 +11,9 @@ export default {
       class: ''             // optional class names space delimited list for title item ex: "text-center"
     }, */
     {
-      name: 'Connections',
-      url: '/connections',
-      icon: 'fa fa-wire',
-      children: [
-        {
-          name: 'New connection',
-          url: '/connections/new',
-          icon: 'icon-heart'
-        }  
-      ]
+      name: 'Subscribers',
+      url: '/subscribers',
+      icon: 'fa fa-user',
     },
     {
       name: 'Locations',
@@ -63,17 +56,5 @@ export default {
         },
       ]
     },
-    // {
-    //   name: 'Pages',
-    //   url: '/pages',
-    //   icon: 'icon-page',
-    //   children: [
-    //     {
-    //       name: 'Login',
-    //       url: '/login',
-    //       icon: 'fa fa-sign-in-alt',
-    //     }
-    //   ]
-    // }
   ],
 };
