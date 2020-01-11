@@ -5,7 +5,7 @@ import FetchLocations from '../Locations/FetchLocations';
 import { url, version } from '../../_api.json';
 
 //const APIURL = 'https://api.azintex.com/inventory/hardware';
-const APIURL = `${url}/${version}/inventory/hardware`;
+const APIURL = `${url}/${version}/inventory`;
 
 const ShowInventoryItems = (props) => {
 
@@ -95,9 +95,9 @@ const ShowModal = (props) => {
                   <FormGroup>
                       <Label for="type">Hardware type</Label>
                       <Input type="select" name="type" id="type">            
-                          <option>Switch</option>
-                          <option>Router</option>
-                          <option>UPS</option>
+                          <option value='switch'>Switch</option>
+                          <option value='router'>Router</option>
+                          <option value='ups'>UPS</option>
                       </Input>
                   </FormGroup>
                   <FormGroup>
@@ -132,7 +132,7 @@ const ShowModal = (props) => {
                   </FormGroup>
                 </ModalBody>
                 <ModalFooter>
-                  <Button type='submit' onClick={() => updateInventoryItems('switch', true)} color="primary">Add</Button>{' '}
+                  <Button type='submit' onClick={() => handleSubmit} color="primary">Add</Button>{' '}
                   <Button color="secondary" onClick={toggle}>Cancel</Button>
                 </ModalFooter>
                 </Form>
