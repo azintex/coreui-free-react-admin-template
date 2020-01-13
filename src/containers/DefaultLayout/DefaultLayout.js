@@ -67,7 +67,7 @@ class DefaultLayout extends Component {
                         )} />
                     ) : (null);
                   })}
-                  <Redirect from="/" to="/dashboard" />
+                  {localStorage.hasOwnProperty('_apiToken') ? <Redirect from="/" to="/dashboard" /> : <Redirect from="/" to="/login" />}
                 </Switch>
               </Suspense>
             </Container>
