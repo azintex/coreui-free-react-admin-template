@@ -1,54 +1,43 @@
-import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import { Button, Card, CardBody, CardGroup, Col, Container, Form, Input, InputGroup, InputGroupAddon, InputGroupText, Row } from 'reactstrap';
+import React, { useState, useEffect } from 'react';
+import { url, version } from '../../_api.json';
 
-class Login extends Component {
-  render() {
-    return (
-      <div className="app flex-row align-items-center">
-        <Container>
-          <Row className="justify-content-center">
-            <Col md="4">
-              <CardGroup>
-                <Card className="p-4">
-                  <CardBody>
-                    <Form>
-                      <h1>Login</h1>
-                      <p className="text-muted">Sign In to your account</p>
-                      <InputGroup className="mb-3">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="icon-user"></i>
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input type="text" placeholder="Username" autoComplete="username" />
-                      </InputGroup>
-                      <InputGroup className="mb-4">
-                        <InputGroupAddon addonType="prepend">
-                          <InputGroupText>
-                            <i className="icon-lock"></i>
-                          </InputGroupText>
-                        </InputGroupAddon>
-                        <Input type="password" placeholder="Password" autoComplete="current-password" />
-                      </InputGroup>
-                      <Row>
-                        <Col xs="6">
-                          <Button color="primary" className="px-4">Login</Button>
-                        </Col>
-                        <Col xs="6" className="text-right">
-                          <Button color="link" className="px-0">Forgot password?</Button>
-                        </Col>
-                      </Row>
-                    </Form>
-                  </CardBody>
-                </Card>
-              </CardGroup>
-            </Col>
-          </Row>
-        </Container>
-      </div>
-    );
-  }
+const APIURL = `${url}/${version}/auth`;
+
+const LoginPage = () => {
+    const [isAuthenticated, setAuth] = useState(false);
+
+
+    // @c credentials
+    async function makeAuth(c) {
+        try {
+            const response = await fetch(APIURL, { method : 'POST', body : c });
+            if (response.status == 401) {
+                return response.text();
+            }
+            else {
+                const json = response.json();
+                return json;
+            }
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // @fd form data
+        const fd = new FormData(event.target);
+        makeAuth(fd);
+    }
+
+    return(
+        <form onSubmit={e => handleSubmit(e)}>
+            <input type='text' name='username' placeholder='Username'></input>
+            <input type='password' name='password' placeholder='Password'></input>
+            <button type='submit'>Login</button>
+        </form>
+    )
 }
 
-export default Login;
+export default LoginPage;
