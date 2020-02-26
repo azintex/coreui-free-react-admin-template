@@ -47,10 +47,10 @@ const ShowInventoryItems = (props) => {
                 <td>{inventoryItem.hardware.vendor}</td>
                 <td>{inventoryItem.hardware.model}</td>
                 <td>{inventoryItem.hardware.ip_address}</td>
-                <td>{inventoryItem.hardware.connection_proto}</td>
+                <td>{inventoryItem.hardware.proto}</td>
                 <td>
                     <ButtonGroup>
-                        <Button color='success' size='sm' onClick={()=> window.location=`${inventoryItem.hardware.connection_proto}://${inventoryItem.hardware.ip_address}`} >Connect</Button>
+                        <Button color='success' size='sm' onClick={()=> window.location=`${inventoryItem.hardware.proto}://${inventoryItem.hardware.ip_address}`} >Connect</Button>
                         <Button outline color='primary' size='sm' className='icon-pencil' onClick={() => console.log('Edit')}></Button>
                         <Button outline color='danger' size='sm' className='icon-trash' onClick={() => deleteFromInventoryById(inventoryItem._id.$oid)}></Button>
                     </ButtonGroup>
@@ -124,10 +124,10 @@ const ShowModal = (props) => {
                   <FormGroup>
                       <Label for="proto">Connection protocol</Label>
                       <Input type="select" name="proto" id="proto">            
-                          <option>ssh</option>
-                          <option>telnet</option>
-                          <option>http</option>
-                          <option>https</option>
+                          <option value='ssh'>ssh</option>
+                          <option value='telnet'>telnet</option>
+                          <option value='http'>http</option>
+                          <option value='https'>https</option>
                       </Input>
                   </FormGroup>
                 </ModalBody>
