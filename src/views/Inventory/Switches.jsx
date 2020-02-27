@@ -51,9 +51,9 @@ const ShowInventoryItems = (props) => {
                 <td>{inventoryItem.hardware.proto}</td>
                 <td>
                     <ButtonGroup>
-                        <Button color='success' bssize='sm' onClick={()=> window.location=`${inventoryItem.hardware.proto}://${inventoryItem.hardware.ip_address}`} >Connect</Button>
-                        <Button outline color='primary' bssize='sm' className='icon-pencil' onClick={() => console.log('Edit')}></Button>
-                        <Button outline color='danger' bssize='sm' className='icon-trash' onClick={() => deleteFromInventoryById(inventoryItem._id.$oid)}></Button>
+                        <Button color='success' size="sm" onClick={()=> window.location=`${inventoryItem.hardware.proto}://${inventoryItem.hardware.ip_address}`}>Connect</Button>
+                        <Button outline color='primary' size="sm" className='icon-pencil' onClick={() => console.log('Edit')}></Button>
+                        <Button outline color='danger'size="sm" className='icon-trash' onClick={() => deleteFromInventoryById(inventoryItem._id.$oid)}></Button>
                     </ButtonGroup>
                 </td>
               </tr>))}
@@ -94,7 +94,7 @@ const ShowModal = (props) => {
                 <ModalHeader toggle={toggle}>New hardware</ModalHeader>
                 <ModalBody>
                 <Row form>
-                    <Col md={6}>
+                    <Col xs={6}>
                         <FormGroup>
                             <Label for="type">Hardware type</Label>
                             <Input type="select" name="type" id="type" bsSize="sm">            
@@ -104,7 +104,7 @@ const ShowModal = (props) => {
                             </Input>
                         </FormGroup>
                     </Col>
-                    <Col md={6}>
+                    <Col xs={6}>
                         <FormGroup>
                             <Label for="role">Hardware role</Label>
                             <Input type="text" name="role" id="role" bsSize="sm" placeholder="e.g. Core router" />
@@ -112,13 +112,13 @@ const ShowModal = (props) => {
                     </Col>
                 </Row>
                 <Row form>
-                    <Col md={6}>
+                    <Col xs={6}>
                         <FormGroup>
                             <Label for="vendor">Vendor</Label>
                             <Input type="text" name="vendor" id="vendor" bsSize="sm" placeholder="e.g. Cisco" />
                         </FormGroup>
                     </Col>
-                    <Col md={6}>
+                    <Col xs={6}>
                         <FormGroup>
                             <Label for="model">Model</Label>
                             <Input type="text" name="model" id="model" bsSize="sm" placeholder="e.g. Catalyst 2960" />
@@ -126,13 +126,13 @@ const ShowModal = (props) => {
                     </Col>
                 </Row>
                 <Row form>
-                    <Col md={6}>
+                    <Col xs={6}>
                         <FormGroup>
                             <Label for="serialNumber">Serial number</Label>
                             <Input type="text" name="serialNumber" id="serialNumber" bsSize="sm" placeholder="e.g. FCQ1707X0EF" />
                         </FormGroup>
                     </Col>
-                    <Col md={6}>
+                    <Col xs={6}>
                         <FormGroup>
                             <Label for="macAddress">MAC address</Label>
                             <Input type="text" name="macAddress" id="macAddress" bsSize="sm" placeholder="e.g. 50:06:04:49:E0:80" />
@@ -140,13 +140,13 @@ const ShowModal = (props) => {
                     </Col>
                 </Row>
                 <Row form>
-                    <Col md={6}>
+                    <Col xs={6}>
                         <FormGroup>
                             <Label for="ip_address">IP address</Label>
                             <Input type="text" name="ip_address" id="ip_address" bsSize="sm" placeholder="e.g. 10.16.93.33" />
                         </FormGroup>
                     </Col>
-                    <Col md={6}>
+                    <Col xs={6}>
                         <FormGroup>
                             <Label for="proto">Connection protocol</Label>
                             <Input type="select" name="proto" id="proto" bsSize="sm">            
@@ -159,10 +159,10 @@ const ShowModal = (props) => {
                     </Col>
                 </Row>
                 <Row form>
-                    <Col md={6}>
+                    <Col xs={6}>
                         <FetchLocations />
                     </Col>
-                    <Col md={6}>
+                    <Col xs={6}>
                         <FormGroup>
                             <Label for="notes">Notes</Label>
                             <Input type="text" name="notes" id="notes" bsSize="sm" placeholder="e.g. Heart of Aintex.com ISP" />
@@ -184,7 +184,7 @@ const ShowModal = (props) => {
   const Switches = () => {
         return (
             <div>
-                <Table size='sm' responsive striped hover>
+                <Table size="sm" responsive striped hover bordered>
                 <thead>
                     <tr>
                         <th>Type</th>
@@ -195,6 +195,7 @@ const ShowModal = (props) => {
                         <th>Model</th>
                         <th>IP address</th>
                         <th>Protocol</th>
+                        <th></th>
                     </tr>
                 </thead>
                     <ShowInventoryItems />
