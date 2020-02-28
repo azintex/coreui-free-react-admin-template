@@ -1,0 +1,133 @@
+[
+    {
+        "subscriber": {
+            "type": "private",
+            "sid": "AZX 201500",
+            "inform": {
+                "docType": "ID",
+                "docSerial": "AZE 17006023",
+                "name": "Haji",
+                "lastName": "Uzdenov",
+                "patronymic": "Balamirza",
+                "birthPlace": "Baku, Azerbaijan",
+                "birthDate": "29-05-1985",
+                "issuedBy": "ASAN 4",
+                "issuedDate": "29-06-2016",
+                "expireDate": "29-05-2045",
+            },
+            "connection": {
+                "protocol": "PPPoE",
+                "detail": {
+                    "cid": "1234567",
+                    "connectionType": "FTTx",
+                    "connectionDate": "2020-28-02",
+                    "connectedBy": "Nerimanov Perviz",
+                    "username": "ppp1234",
+                    "password": "abcd1234",
+                    "network": "85.132.30.0/24",
+                    "vlanId": 984,
+                    "ipAddress": "85.132.30.226",
+                    "subnet": "255.255.255.0",
+                    "gateway": "85.132.30.1",                        
+                },
+                "topology": {
+                    "pstn": 93
+                }
+            },
+            "payment": {
+                "rate": "30Mb/s",
+                "currency": "manat",
+                "price": 150,
+                "purchaseDate": "28-02-2020",
+                "purchaseExpireDate": "28-03-2020",
+                "lastPaymentDate": "27-02-2020"
+            }
+        },
+        "subscriber": {
+            "type": "private",
+            "sid": "AZX 201500",
+            "inform": {
+                "docType": "ID",
+                "docSerial": "AZE 17006023",
+                "name": "Haji",
+                "lastName": "Uzdenov",
+                "patronymic": "Balamirza",
+                "birthPlace": "Baku, Azerbaijan",
+                "birthDate": "29-05-1985",
+                "issuedBy": "ASAN 4",
+                "issuedDate": "29-06-2016",
+                "expireDate": "29-05-2045",
+            },
+            "connection": {
+                "protocol": "PPPoE",
+                "detail": {
+                    "cid": "1234567",
+                    "connectionType": "FTTx",
+                    "connectionDate": "2020-28-02",
+                    "connectedBy": "Nerimanov Perviz",
+                    "username": "ppp1234",
+                    "password": "abcd1234",
+                    "network": "85.132.30.0/24",
+                    "vlanId": 984,
+                    "ipAddress": "85.132.30.226",
+                    "subnet": "255.255.255.0",
+                    "gateway": "85.132.30.1",                        
+                },
+                "topology": {
+                    "pstn": 93
+                }
+            },
+            "payment": {
+                "rate": "30Mb/s",
+                "currency": "manat",
+                "price": 150,
+                "purchaseDate": "28-02-2020",
+                "purchaseExpireDate": "28-03-2020",
+                "lastPaymentDate": "27-02-2020"
+            }
+        },
+        "subscriber": {
+            "type": "private",
+            "sid": "AZX 201500",
+            "inform": {
+                "docType": "ID",
+                "docSerial": "AZE 17006023",
+                "name": "Haji",
+                "lastName": "Uzdenov",
+                "patronymic": "Balamirza",
+                "birthPlace": "Baku, Azerbaijan",
+                "birthDate": "29-05-1985",
+                "issuedBy": "ASAN 4",
+                "issuedDate": "29-06-2016",
+                "expireDate": "29-05-2045",
+            },
+            "connection": {
+                "protocol": "PPPoE",
+                "detail": {
+                    "cid": "1234567",
+                    "connectionType": "FTTx",
+                    "connectionDate": "2020-28-02",
+                    "connectedBy": "Nerimanov Perviz",
+                    "username": "ppp1234",
+                    "password": "abcd1234",
+                    "network": "85.132.30.0/24",
+                    "vlanId": 984,
+                    "ipAddress": "85.132.30.226",
+                    "subnet": "255.255.255.0",
+                    "gateway": "85.132.30.1",                        
+                },
+                "topology": {
+                    "pstn": 93
+                }
+            },
+            "payment": {
+                "rate": "30Mb/s",
+                "currency": "manat",
+                "price": 150,
+                "purchaseDate": "28-02-2020",
+                "purchaseExpireDate": "28-03-2020",
+                "lastPaymentDate": "27-02-2020"
+            }
+        }
+    }
+]
