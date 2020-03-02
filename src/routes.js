@@ -42,6 +42,7 @@ const Switches = React.lazy(() => import('./views/Inventory/Switches'));
 const UPS = React.lazy(() => import('./views/Inventory/UPS'));
 const Login = React.lazy(() => import('./views/Auth/Login'));
 const Subscribers = React.lazy(() => import('./views/Subscribers/Subscribers'));
+const NewSubscriber = React.lazy(() => import('./views/Subscribers/NewSubscriber'));
 const NewLocation = React.lazy(() => import('./views/Locations/NewLocation'));
 
 
@@ -95,6 +96,7 @@ const routes = [
   { path: '/inventory/hardware/ups', exact: true, name: 'UPS', component: UPS },
   { path: '/login', exact: true, name: 'Login', component: Login },
   { path: '/subscribers', exact: true, name: 'New connection', component: Subscribers },
+  { path: '/subscribers/new', exact: true, name: 'New subscriber', component : NewSubscriber },
   { path: '/location/new', exact: true, name: 'New location', component: NewLocation }
 ];
 

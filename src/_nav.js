@@ -14,6 +14,13 @@ export default {
       name: 'Subscribers',
       url: '/subscribers',
       icon: 'fa fa-user',
+      children: [
+        {
+          name: 'New subscriber',
+          url: '/subscribers/new',
+          icon: 'icon-heart'
+        }
+      ]
     },
     {
       name: 'Locations',

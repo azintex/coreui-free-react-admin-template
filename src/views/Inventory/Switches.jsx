@@ -11,9 +11,9 @@ const APIURL = `${url}/${version}/inventory`;
 const ShowInventoryItems = (props) => {
 
   const [isAdded, setIsAdded] = useState(false);
-  const [inventoryItems, fetchInventoryItems] = useState([]);
+  const [inventoryItems, setInventoryItems] = useState([]);
 
-  const getInventoryItems = async () => {
+  const fetchInventoryItems = async () => {
       try {
           const response = await fetch(`${APIURL}`);
           const json = await response.json();
@@ -32,9 +32,7 @@ const ShowInventoryItems = (props) => {
   }
 
   useEffect(() => {
-      getInventoryItems().then(arr => fetchInventoryItems(arr));
-      //setIsAdded(props.isAdded);
-      //console.log(inventoryItems);
+      fetchInventoryItems().then(arr => setInventoryItems(arr));
   }, []);
 
   return (
