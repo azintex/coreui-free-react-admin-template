@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { Row, Col, Form, FormGroup, Label, Button, Input, InputGroup } from 'reactstrap';
-import PrivateSubscriber from './PrivateSubscriber';
 
-const NewSubscriber = () => {
+const Private = React.lazy(() => import('./PrivateSubscriber'));
+const Company = React.lazy(() => import('./CompanySubscriber'));
+
+const Subscriber = () => {
     const [subscriberType, setSubscriberType] = useState(null);
 
     return(
@@ -28,8 +30,11 @@ const NewSubscriber = () => {
 
 const NextStep = (props) => {
     return (
-        props.subscriberType == 'private' ? <PrivateSubscriber label="Private subscriber" name="subscriberType" inputType="text" /> : null
+        <div>
+            {props.subscriberType == 'private' ? <Private lbl="Private subscriber" name="subscriberType" /> : null}
+            {props.subscriberType == 'company' ? <Company lbl="Company subscriber" name="subscriberType" charLimit={12} /> : null}
+        </div>
     )
 }
 
-export default NewSubscriber;
+export default Subscriber;

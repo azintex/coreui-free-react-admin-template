@@ -12,13 +12,17 @@ export default {
     }, */
     {
       name: 'Subscribers',
-      url: '/subscribers',
-      icon: 'fa fa-user',
+      icon: 'icon-user',
       children: [
         {
-          name: 'New subscriber',
-          url: '/subscribers/new',
-          icon: 'icon-heart'
+          name: 'List',
+          url: '/subscribers',
+          icon: 'icon-list'
+        },
+        {
+          name: 'Add',
+          url: '/subscriber',
+          icon: 'icon-plus'
         }
       ]
     },
@@ -36,7 +40,6 @@ export default {
     },
     {
       name: 'Inventory',
-      url: '/inventory',
       icon: 'fa fa-list',
       children: [
         {
